@@ -18,8 +18,8 @@ namespace DiegoG.LedgerBase
         public decimal Value { get; init; }
         [Key(1)]
         public Currencies Type { get; init; }
-        
-        public string Display => Exchange.FormatCurrency(Value, Type);
+
+        public string Display(Exchange.CurrencyFormat format = Exchange.CurrencyFormat.Simple, string? numberformat = null) => Exchange.FormatCurrency(Value, Type, format, numberformat);
 
         public static Currency Convert(Currency curr, Currencies type) => type == curr.Type ? curr : new(curr.Value * Exchange.GetRate(curr.Type, type), type);
 

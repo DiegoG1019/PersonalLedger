@@ -7,11 +7,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\..\..\DGUtilities\DiegoG.Utilities.Basic\DiegoG.Utilities.Basic.csproj" />
-    <ProjectReference Include="..\..\..\DGUtilities\DiegoG.Utilities.Collections\DiegoG.Utilities.Collections.csproj" />
-    <ProjectReference Include="..\..\..\DGUtilities\DiegoG.Utilities.Personal\DiegoG.Utilities.Personal.csproj" />
-    <ProjectReference Include="..\..\..\DGUtilities\DiegoG.Utilities.Serialization\DiegoG.Utilities.Serialization.csproj" />
+    <ProjectReference Include="..\..\DGUtilities\DiegoG.Utilities.Basic\DiegoG.Utilities.Basic.csproj" />
+    <ProjectReference Include="..\..\DGUtilities\DiegoG.Utilities.Collections\DiegoG.Utilities.Collections.csproj" />
+    <ProjectReference Include="..\..\DGUtilities\DiegoG.Utilities.Personal\DiegoG.Utilities.Personal.csproj" />
+    <ProjectReference Include="..\..\DGUtilities\DiegoG.Utilities.Serialization\DiegoG.Utilities.Serialization.csproj" />
   </ItemGroup>
 
 </Project>

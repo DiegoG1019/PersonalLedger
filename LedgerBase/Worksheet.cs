@@ -12,6 +12,7 @@ using MessagePack;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using DiegoG.Utilities.IO;
+using System.Text.RegularExpressions;
 
 namespace DiegoG.LedgerBase
 {
@@ -27,6 +28,16 @@ namespace DiegoG.LedgerBase
         private NoRepeatsList<Currencies> Currencies { get; } = new();
         private Dictionary<Currencies, Currency> PerCurrencyTotals_ { get; } = new();
 
+        public const string FileExtension = ".worksheet";
+        public static string StandarizeName(string name) => Regex.Replace(name, @"\s+", "").ToLower();
+        public static string ValidateName(string name)
+            => name.Any(c => char.IsWhiteSpace(c)) ?
+            throw new ArgumentException("Name is invalid") :
+            name.ToLower();
+
+        public static string ValidateAndFormatName(string name) => ValidateName(name) + ".worksheet.json";
+
+        public int EntryCount => EntryList.Count;
 
         [Key(0)]
         public Currencies AbsoluteCurrency { get; set; }
@@ -116,7 +127,5 @@ namespace DiegoG.LedgerBase
             };
             Title = title;
         }
-
-        static Worksheet() => JsonSerializationSettings.RegisterClassCallbacksJsonConverter<Worksheet>();
     }
 }

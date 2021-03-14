@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PropertyChanged;
+using System.Runtime.Loader;
 
 namespace DiegoG.LedgerBase
 {
@@ -16,5 +17,7 @@ namespace DiegoG.LedgerBase
         public string SettingsType => "LedgerSettings";
         public ulong Version => 0;
         public string? ExchangeRateAPIKey { get; set; }
+
+        static LedgerSettings() => AssemblyLoadContext.Default.Unloading += alc => CachedData.SaveCache();
     }
 }

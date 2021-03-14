@@ -26,7 +26,7 @@ namespace DiegoG.LedgerBase
             return ExchangeRates[from].GetExchange(to);
         }
 
-        public static string FormatCurrency(decimal value, Currencies type, CurrencyFormat format = CurrencyFormat.Simple)
+        public static string FormatCurrency(decimal value, Currencies type, CurrencyFormat format = CurrencyFormat.Simple, string? numberformat = null)
         {
             var att = GetCurrencyAttribute(type);
             return format switch
@@ -38,7 +38,7 @@ namespace DiegoG.LedgerBase
             };
 
             string PaddedValue()
-            => value.ToString("0." + new string('0', att.DecimalPlaces));
+            => value.ToString(numberformat ?? "0." + new string('0', att.DecimalPlaces));
         }
 
         public static CurrencyDataAttribute GetCurrencyAttribute(Currencies type) 

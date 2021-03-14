@@ -21,6 +21,11 @@ namespace DiegoG.LedgerBase
         public IEnumerable<string>? OtherComments { get; init; }
         [Key(4)]
         public Person? Source { get; init; }
+        /// <summary>
+        /// Positive debt are counted as owed to another entity, Negative debt is counted as owed to self
+        /// </summary>
+        [Key(5)]
+        public bool IsDebt { get; init; }
 
         public Entry(Currency amnt, DateTime adquisition)
         {

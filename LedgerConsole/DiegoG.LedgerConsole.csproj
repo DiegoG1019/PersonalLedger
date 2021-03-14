@@ -5,8 +5,16 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\..\..\DGUtilities\DiegoG.CLI\DiegoG.CLI.csproj" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DGUtilities\DiegoG.CLI\DiegoG.CLI.csproj" />
     <ProjectReference Include="..\LedgerBase\DiegoG.LedgerBase.csproj" />
   </ItemGroup>
 

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO.Compression;
+using System.Runtime.Loader;
 
 namespace DiegoG.LedgerBase
 {
-    internal static class CachedData
+    public static class CachedData
     {
         private static readonly object Lock = new();
         /// <summary>
@@ -41,6 +42,8 @@ namespace DiegoG.LedgerBase
             lock (Lock) 
                 ZipFile.CreateFromDirectory("cache", Directories.InCache("ledgerbasecache"));
         }
+
+        static CachedData() => AssemblyLoadContext.Default.Unloading += a => SaveCache();
 
         public static string Get(params string[] path) => Path.Combine(Environment.CurrentDirectory, "cache", Path.Combine(path));
     }
