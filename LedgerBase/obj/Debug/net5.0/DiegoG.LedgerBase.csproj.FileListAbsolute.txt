@@ -1,5 +1,0 @@
-C:\Users\duden\Workspace\Programming\PersonalLedger\LedgerBase\obj\Debug\net5.0\DiegoG.LedgerBase.csproj.AssemblyReference.cache
-C:\Users\duden\Workspace\Programming\PersonalLedger\LedgerBase\obj\Debug\net5.0\DiegoG.LedgerBase.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\duden\Workspace\Programming\PersonalLedger\LedgerBase\obj\Debug\net5.0\DiegoG.LedgerBase.AssemblyInfoInputs.cache
-C:\Users\duden\Workspace\Programming\PersonalLedger\LedgerBase\obj\Debug\net5.0\DiegoG.LedgerBase.AssemblyInfo.cs
-C:\Users\duden\Workspace\Programming\PersonalLedger\LedgerBase\obj\Debug\net5.0\DiegoG.LedgerBase.csproj.CoreCompileInputs.cache
