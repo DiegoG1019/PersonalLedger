@@ -17,6 +17,14 @@
     <PackageReference Include="DiegoG.Utilities.Collections" Version="1.0.0" />
     <PackageReference Include="DiegoG.Utilities.Reflection" Version="1.1.2" />
     <PackageReference Include="DiegoG.Utilities.Serialization" Version="1.0.0" />
+    <PackageReference Include="NeoSmart.AsyncLock" Version="3.1.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.114.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CacheDbContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
   </ItemGroup>
 
 </Project>
