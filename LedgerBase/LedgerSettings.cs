@@ -17,7 +17,5 @@ namespace DiegoG.LedgerBase
         public string SettingsType => "LedgerSettings";
         public ulong Version => 0;
         public string? ExchangeRateAPIKey { get; set; }
-
-        static LedgerSettings() => AssemblyLoadContext.Default.Unloading += alc => CachedData.SaveCache();
     }
 }

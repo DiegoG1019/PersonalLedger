@@ -30,35 +30,25 @@ namespace DiegoG.LedgerBase
         }
 
         public static Currency Parse(string s)
-        {
-            var val = Regex.Matches(s, @"(\d+(\.\d+)?)|(\.\d+)");
-            if (val.Count != 1)
-                throw new ArgumentException("Input string is not in correct format: " + s);
-
-            var allattr = Exchange.GetAllCurrencyAttributes();
-
-            if (allattr
-               .Count(a => s.ContainsAny(new string[] { a.Currency, a.Name, a.PluralName, a.Symbol }))
-               != 1)
-                throw new ArgumentException("Input string is not in correct format: " + s);
-
-            var attr = allattr.First(a => s.ContainsAny(new string[] { a.Currency, a.Name, a.PluralName, a.Symbol }));
-
-            return new(decimal.Parse(val.First().Value), attr.Value);
-        }
+            => TryParse(s, out var result) ? result : throw new ArgumentException("Input string is not in correct format: " + s);
 
         public static bool TryParse(string s, [NotNullWhen(true)] out Currency? result)
         {
-            try
-            {
-                result = Parse(s);
-                return true;
-            }
-            catch(Exception)
-            {
-                result = null;
+            result = null;
+
+            var val = Regex.Matches(s, @"(\d+(\.\d+)?)|(\.\d+)");
+            if (val.Count != 1)
                 return false;
-            }
+
+            var allattr = Exchange.GetAllCurrencyAttributes();
+
+            if (allattr.Count(a => s.ContainsAny(new string[] { a.Currency, a.Name, a.PluralName, a.Symbol })) != 1)
+                return false;
+
+            var attr = allattr.First(a => s.ContainsAny(new string[] { a.Currency, a.Name, a.PluralName, a.Symbol }));
+
+            result = new(decimal.Parse(val.First().Value), attr.Value);
+            return true;
         }
 
         public static Currency Zero { get; } = new(0, Currencies.USDollar);
