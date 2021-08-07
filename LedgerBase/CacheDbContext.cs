@@ -10,6 +10,7 @@ namespace DiegoG.LedgerBase
     public partial class CacheDbContext : DbContext
     {
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Worksheet> Worksheets { get; set; }
 
         public CacheDbContext() : base(Directories.InCache("cache"))
         {

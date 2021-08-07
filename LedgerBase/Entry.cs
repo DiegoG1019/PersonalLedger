@@ -21,12 +21,6 @@ namespace DiegoG.LedgerBase
         [Key(4)]
         public Person? Source { get; init; }
 
-        /// <summary>
-        /// If this is not set to null, <see cref="Amount"/> will be interpreted as a Payment or a Loan to the <see cref="IndebtedParty"/> here specified
-        /// </summary>
-        [Key(5)]
-        public Person? IndebtedParty { get; init; }
-
         public Entry(Currency amnt, DateTime adquisition)
         {
             Amount = amnt;
