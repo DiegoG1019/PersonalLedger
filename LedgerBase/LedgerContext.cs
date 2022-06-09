@@ -22,7 +22,7 @@ public partial class LedgerContext : DbContext
 
         var business = mb.Entity<BusinessEntity>();
         business.HasKey(x => x.Alias);
-        business.OwnsMany(x => x.PaymentInfo).WithOwner(x => x.Entity);
+        business.HasMany(x => x.PaymentInfo).WithOne(x => x.Entity);
 
         var entry = mb.Entity<Entry>();
         entry.HasKey(x => x.Id);
