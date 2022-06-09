@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>DiegoG.LedgerBase</RootNamespace>
     <AssemblyName>DiegoG.LedgerBase</AssemblyName>
     <Nullable>enable</Nullable>
@@ -12,19 +12,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DiegoG.Utilities.Base" Version="1.0.0" />
-    <PackageReference Include="DiegoG.Utilities.Basic" Version="1.0.2" />
+    <PackageReference Include="DiegoG.Utilities.Base" Version="1.0.2" />
+    <PackageReference Include="DiegoG.Utilities.Basic" Version="1.5.2" />
     <PackageReference Include="DiegoG.Utilities.Collections" Version="1.0.0" />
     <PackageReference Include="DiegoG.Utilities.Reflection" Version="1.1.2" />
-    <PackageReference Include="DiegoG.Utilities.Serialization" Version="1.0.0" />
-    <PackageReference Include="NeoSmart.AsyncLock" Version="3.1.0" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.114.4" />
+    <PackageReference Include="DiegoG.Utilities.Serialization" Version="1.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="6.0.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="NeoSmart.AsyncLock" Version="3.2.1" />
+    <PackageReference Include="Serilog" Version="2.11.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="CacheDbContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
+    <Folder Include="Attributes\" />
   </ItemGroup>
 
 </Project>
